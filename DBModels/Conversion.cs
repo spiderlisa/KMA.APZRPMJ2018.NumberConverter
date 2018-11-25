@@ -1,20 +1,28 @@
 ﻿using System;
 using System.Data.Entity.ModelConfiguration;
+using System.Runtime.Serialization;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
 
 namespace KMA.APZRPMJ2018.NumberConverter.DBModels
 {
-    [Serializable]
+    [DataContract(IsReference = true)]
     public class Conversion
     {
         #region Fields
+        [DataMember]
         private Guid _guid;
+        [DataMember]
         private string _arabicNumeralValue;
+        [DataMember]
         private string _romanNumeralValue;
+        [DataMember]
         private DateTime _conversionDate;
+        [DataMember]
         private int _number;
 
+        [DataMember]
         private Guid _userGuid;
+        [DataMember]
         private User _user;
         #endregion
 
