@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConversionDBContext.cs" />
+    <Compile Include="ConversionDbContext.cs" />
     <Compile Include="EntityWrapper.cs" />
     <Compile Include="Migrations\201811171447497_InitialCreate.cs" />
     <Compile Include="Migrations\201811171447497_InitialCreate.Designer.cs">

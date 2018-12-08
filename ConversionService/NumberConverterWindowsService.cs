@@ -11,7 +11,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ConversionService
         internal const string CurrentServiceDisplayName = "Number Converter Service1";
         internal const string CurrentServiceSource = "NumberConverterServiceSource1";
         internal const string CurrentServiceLogName = "NumberConverterServiceLogName1";
-        internal const string CurrentServiceDescription = "Number Converter for learning purposes1.";
+        internal const string CurrentServiceDescription = "Number Converter for learning purposes.";
         private ServiceHost _serviceHost = null;
 
         public NumberConverterWindowsService()

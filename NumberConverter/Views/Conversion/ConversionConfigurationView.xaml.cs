@@ -1,5 +1,4 @@
 ﻿using KMA.APZRPMJ2018.NumberConverter.ViewModels;
-using System;
 
 namespace KMA.APZRPMJ2018.NumberConverter.Views.Conversion
 {
@@ -8,7 +7,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Views.Conversion
     /// </summary>
     public partial class ConversionConfigurationView
     {
-        public ConversionConfigurationView(Models.ConversionUIModel conversion)
+        public ConversionConfigurationView(Models.ConversionUiModel conversion)
         {
             InitializeComponent();
             var conversionModel = new ConversionConfigurationViewModel(conversion);

@@ -10,7 +10,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter
     {
         public static bool UserExists(string login)
         {
-            using (var context = new ConversionDBContext())
+            using (var context = new ConversionDbContext())
             {
                 return context.Users.Any(u => u.Login == login);
             }
@@ -18,7 +18,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter
 
         public static User GetUserByLogin(string login)
         {
-            using (var context = new ConversionDBContext())
+            using (var context = new ConversionDbContext())
             {
                 return context.Users.Include(u => u.Conversions).FirstOrDefault(u => u.Login == login);
             }
@@ -26,23 +26,23 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter
 
         public static User GetUserByGuid(Guid guid)
         {
-            using (var context = new ConversionDBContext())
+            using (var context = new ConversionDbContext())
             {
                 return context.Users.Include(u => u.Conversions).FirstOrDefault(u => u.Guid == guid);
             }
         }
 
-        public static List<User> GetAllUsers(Guid ConversionGuid)
+        public static List<User> GetAllUsers(Guid conversionGuid)
         {
-            using (var context = new ConversionDBContext())
+            using (var context = new ConversionDbContext())
             {
-                return context.Users.Where(u => u.Conversions.All(r => r.Guid != ConversionGuid)).ToList();
+                return context.Users.Where(u => u.Conversions.All(r => r.Guid != conversionGuid)).ToList();
             }
         }
 
         public static void AddUser(User user)
         {
-            using (var context = new ConversionDBContext())
+            using (var context = new ConversionDbContext())
             {
                 context.Users.Add(user);
                 context.SaveChanges();
@@ -51,7 +51,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter
 
         public static void AddConversion(Conversion conversion)
         {
-            using (var context = new ConversionDBContext())
+            using (var context = new ConversionDbContext())
             {
                 conversion.DeleteDatabaseValues();
                 context.Conversions.Add(conversion);
@@ -61,7 +61,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter
 
         public static void SaveConversion(Conversion conversion)
         {
-            using (var context = new ConversionDBContext())
+            using (var context = new ConversionDbContext())
             {
                 context.Entry(conversion).State = EntityState.Modified;
                 context.SaveChanges();
@@ -70,7 +70,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter
 
         public static void DeleteConversion(Conversion selectedConversion)
         {
-            using (var context = new ConversionDBContext())
+            using (var context = new ConversionDbContext())
             {
                 selectedConversion.DeleteDatabaseValues();
                 context.Conversions.Attach(selectedConversion);

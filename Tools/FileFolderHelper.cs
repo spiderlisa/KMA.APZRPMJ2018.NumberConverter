@@ -15,7 +15,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Tools
             Path.Combine(ClientFolderPath, "Log");
 
         internal static readonly string LogFilepath = Path.Combine(LogFolderPath,
-            "App_" + DateTime.Now.ToString("YYYY_MM_DD") + ".txt");
+            "App_" + DateTime.Today.ToString("yyyy_MM_dd") + ".txt");
 
         public static readonly string StorageFilePath =
             Path.Combine(ClientFolderPath, "Storage.numcon");
@@ -36,7 +36,6 @@ namespace KMA.APZRPMJ2018.NumberConverter.Tools
                 {
                     file.Create().Close();
                 }
-                //Console.WriteLine(filePath);
             }
             catch (Exception)
             {

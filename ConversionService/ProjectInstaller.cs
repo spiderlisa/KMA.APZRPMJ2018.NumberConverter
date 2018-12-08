@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Configuration.Install;
-using System.Diagnostics;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KMA.APZRPMJ2018.NumberConverter.ConversionService
 {
@@ -24,7 +18,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ConversionService
             _serviceInstaller.DisplayName = NumberConverterWindowsService.CurrentServiceDisplayName;
             _serviceInstaller.Description = NumberConverterWindowsService.CurrentServiceDescription;
             _serviceInstaller.StartType = ServiceStartMode.Automatic;
-            Installers.AddRange(new Installer[]
+            Installers.AddRange(new Installer[] 
             {
                 _serviceProcessInstaller,
                 _serviceInstaller

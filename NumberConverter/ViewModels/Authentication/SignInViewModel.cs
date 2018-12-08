@@ -91,7 +91,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels.Authentication
                 User currentUser;
                 try
                 {
-                    currentUser = DBManager.GetUserByLogin(_login);
+                    currentUser = DbManager.GetUserByLogin(_login);
                 }
                 catch (Exception ex)
                 {

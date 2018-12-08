@@ -1,8 +1,8 @@
-﻿using KMA.APZRPMJ2018.NumberConverter.Tools.Properties;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading;
 using System.Windows;
+using KMA.APZRPMJ2018.NumberConverter.Tools.Properties;
 
 namespace KMA.APZRPMJ2018.NumberConverter.Tools
 {

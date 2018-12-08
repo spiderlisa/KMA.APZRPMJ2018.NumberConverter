@@ -10,7 +10,6 @@ using KMA.APZRPMJ2018.NumberConverter.Managers;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
 
-
 namespace KMA.APZRPMJ2018.NumberConverter.ViewModels.Authentication
 {
     internal class SignUpViewModel : INotifyPropertyChanged
@@ -124,7 +123,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels.Authentication
                         MessageBox.Show(String.Format(Resources.SignUp_EmailIsNotValid, _email));
                         return false;
                     }
-                    if (DBManager.UserExists(_login))
+                    if (DbManager.UserExists(_login))
                     {
                         MessageBox.Show(String.Format(Resources.SignUp_UserAlreadyExists, _login));
                         return false;
@@ -139,7 +138,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels.Authentication
                 try
                 {
                     var user = new User(_firstName, _lastName, _email, _login, _password);
-                    DBManager.AddUser(user);
+                    DbManager.AddUser(user);
                     StationManager.CurrentUser = user;
                 }
                 catch (Exception ex)

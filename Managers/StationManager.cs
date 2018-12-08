@@ -32,7 +32,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
                 Logger.Log("There are no serialized users or failed to deserialize last user");
                 return;
             }
-            userCandidate = DBManager.CheckCachedUser(userCandidate);
+            userCandidate = DbManager.CheckCachedUser(userCandidate);
             if (userCandidate == null)
                 Logger.Log("Failed to relogin last user");
             else

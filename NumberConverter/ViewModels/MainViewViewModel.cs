@@ -1,5 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using KMA.APZRPMJ2018.NumberConverter.Managers;
@@ -7,16 +9,14 @@ using KMA.APZRPMJ2018.NumberConverter.DBModels;
 using KMA.APZRPMJ2018.NumberConverter.Models;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
 {
     class MainViewViewModel : INotifyPropertyChanged
     {
         #region Fields
-        private ConversionUIModel _selectedConversion;
-        private ObservableCollection<ConversionUIModel> _conversions;
+        private ConversionUiModel _selectedConversion;
+        private ObservableCollection<ConversionUiModel> _conversions;
         #region Commands
         private ICommand _addConversionCommand;
         private ICommand _logOutCommand;
@@ -24,11 +24,11 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         #endregion
 
         #region Properties
-        public ObservableCollection<ConversionUIModel> Conversions
+        public ObservableCollection<ConversionUiModel> Conversions
         {
             get { return _conversions; }
         }
-        public ConversionUIModel SelectedConversion
+        public ConversionUiModel SelectedConversion
         {
             get { return _selectedConversion; }
             set
@@ -72,7 +72,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
 
         private void FillConversions()
         {
-            _conversions = new ObservableCollection<ConversionUIModel>();
+            _conversions = new ObservableCollection<ConversionUiModel>();
             StationManager.CurrentUser.Conversions = StationManager.CurrentUser.Conversions.OrderBy(o => o.Number).ToList<Conversion>();
             List<Conversion> toDelete = new List<Conversion>();
             foreach (var conv in StationManager.CurrentUser.Conversions)
@@ -83,7 +83,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
                 }
                 else
                 {
-                    _conversions.Add(new ConversionUIModel(conv));
+                    _conversions.Add(new ConversionUiModel(conv));
                 }
             }
             if (_conversions.Count > 0)
@@ -94,15 +94,15 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
             foreach (var conv in toDelete)
             {
                 StationManager.CurrentUser.Conversions.Remove(conv);
-                DBManager.DeleteConversion(conv);
+                DbManager.DeleteConversion(conv);
             }
         }
 
         public void AddConversionExecute(object o)
         {
             Conversion conv = new Conversion(StationManager.CurrentUser);
-            DBManager.AddConversion(conv);
-            ConversionUIModel conversion = new ConversionUIModel(conv);
+            DbManager.AddConversion(conv);
+            ConversionUiModel conversion = new ConversionUiModel(conv);
             _conversions.Add(conversion);
             _selectedConversion = conversion;
         }
@@ -117,9 +117,9 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         #region EventsAndHandlers
         #region Loader
         internal event ConversionChangedHandler ConversionChanged;
-        internal delegate void ConversionChangedHandler(ConversionUIModel conversion);
+        internal delegate void ConversionChangedHandler(ConversionUiModel conversion);
 
-        internal virtual void OnConversionChanged(ConversionUIModel conversion)
+        internal virtual void OnConversionChanged(ConversionUiModel conversion)
         {
             ConversionChanged?.Invoke(conversion);
         }

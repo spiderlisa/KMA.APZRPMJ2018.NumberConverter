@@ -1,6 +1,5 @@
 namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class InitialCreate : DbMigration

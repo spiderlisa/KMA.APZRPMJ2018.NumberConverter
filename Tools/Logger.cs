@@ -31,6 +31,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Tools
                 }
             }
         }
+
         public static void Log(string message, Exception ex)
         {
             var stringBuilder = new StringBuilder();

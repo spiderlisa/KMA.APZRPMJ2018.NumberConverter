@@ -6,7 +6,7 @@ using KMA.APZRPMJ2018.NumberConverter.Properties;
 
 namespace KMA.APZRPMJ2018.NumberConverter.Models
 {
-    public class ConversionUIModel : INotifyPropertyChanged
+    public class ConversionUiModel : INotifyPropertyChanged
     {
         #region Fields
         private Conversion _conversion;
@@ -62,7 +62,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Models
 
         #endregion
 
-        public ConversionUIModel(Conversion conversion)
+        public ConversionUiModel(Conversion conversion)
         {
             _conversion = conversion;
         }

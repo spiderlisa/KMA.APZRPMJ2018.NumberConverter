@@ -5,6 +5,7 @@ using KMA.APZRPMJ2018.NumberConverter.Tools;
 
 namespace KMA.APZRPMJ2018.NumberConverter.DBModels
 {
+    [Serializable]
     [DataContract(IsReference = true)]
     public class Conversion
     {
@@ -70,7 +71,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBModels
             _guid = Guid.NewGuid();
             _arabicNumeralValue = "";
             _romanNumeralValue = "";
-            _conversionDate = DateTime.Today.Date;
+            _conversionDate = DateTime.Now.Date;
             if (user.Conversions.Count!=0)
             {
                 _number = user.Conversions[user.Conversions.Count - 1].Number + 1;

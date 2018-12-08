@@ -28,7 +28,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Views
             DataContext = _mainWindowViewModel;
         }
 
-        private void OnConversionChanged(ConversionUIModel conversion)
+        private void OnConversionChanged(ConversionUiModel conversion)
         {
             if (_currentConversionConfigurationView == null)
             {

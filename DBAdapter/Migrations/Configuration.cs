@@ -1,18 +1,15 @@
 namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<KMA.APZRPMJ2018.NumberConverter.DBAdapter.ConversionDBContext>
+   
+    internal sealed class Configuration : DbMigrationsConfiguration<ConversionDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(KMA.APZRPMJ2018.NumberConverter.DBAdapter.ConversionDBContext context)
+        protected override void Seed(ConversionDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

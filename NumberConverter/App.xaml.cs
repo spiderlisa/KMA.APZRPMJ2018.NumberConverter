@@ -1,6 +1,5 @@
-﻿
+﻿using System.Windows;
 using KMA.APZRPMJ2018.NumberConverter.Managers;
-using System.Windows;
 
 namespace KMA.APZRPMJ2018.NumberConverter
 {

@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using KMA.APZRPMJ2018.NumberConverter.DBAdapter;
+using KMA.APZRPMJ2018.NumberConverter.Managers;
 using KMA.APZRPMJ2018.NumberConverter.Models;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
@@ -16,7 +16,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
     {
         #region Fields
         private string _userInput;
-        private ConversionUIModel _currentConversion;
+        private ConversionUiModel _currentConversion;
         #region Command
         private ICommand _convertCommand;
         #endregion
@@ -90,7 +90,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         #endregion
 
         #region Constructor
-        public ConversionConfigurationViewModel(ConversionUIModel conversion)
+        public ConversionConfigurationViewModel(ConversionUiModel conversion)
         {
             _currentConversion = conversion;
         }
@@ -102,7 +102,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
             {
                 try
                 {
-                    if (!(Regex.IsMatch(_userInput, @"^\d+$")))
+                    if (!(Regex.IsMatch(_userInput, @"^\d+$")) || (_userInput.Equals("0")))
                     {
                         MessageBox.Show(String.Format(Resources.Convert_ValueIsNotValid, ArabicValue));
                         return _currentConversion;
@@ -124,7 +124,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
             if (!result.RomanNumeralValue.Equals(""))
             {
                 RomanValue = _currentConversion.RomanNumeralValue;
-                EntityWrapper.SaveConversion(_currentConversion.Conversion);
+                DbManager.SaveConversion(_currentConversion.Conversion);
             }
             else
             {

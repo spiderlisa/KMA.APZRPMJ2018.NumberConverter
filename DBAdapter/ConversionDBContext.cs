@@ -4,11 +4,11 @@ using KMA.APZRPMJ2018.NumberConverter.DBModels;
 
 namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter
 {
-    internal class ConversionDBContext : DbContext
+    internal class ConversionDbContext : DbContext
     {
-        public ConversionDBContext() : base("NewConversionDB")
+        public ConversionDbContext() : base("NewConversionDB")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ConversionDBContext, Configuration>(true));
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ConversionDbContext, Configuration>(true));
         }
 
         public DbSet<User> Users { get; set; }

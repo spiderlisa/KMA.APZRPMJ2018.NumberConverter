@@ -3,7 +3,6 @@ using KMA.APZRPMJ2018.NumberConverter.Managers;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
 using KMA.APZRPMJ2018.NumberConverter.ViewModels;
 
-
 namespace NumberConverter
 {
     /// <summary>

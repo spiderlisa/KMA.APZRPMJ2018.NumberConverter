@@ -3,7 +3,7 @@ using KMA.APZRPMJ2018.NumberConverter.ServiceInterface;
 
 namespace KMA.APZRPMJ2018.NumberConverter.Managers
 {
-    public class DBManager
+    public class DbManager
     {
         public static bool UserExists(string login)
         {
@@ -36,6 +36,11 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
         public static void AddConversion(Conversion conversion)
         {
             ConversionServiceWrapper.AddConversion(conversion);
+        }
+
+        public static void SaveConversion(Conversion conversion)
+        {
+            ConversionServiceWrapper.SaveConversion(conversion);
         }
     }
 }
